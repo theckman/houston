@@ -11,16 +11,39 @@ type Exception struct {
 
 // An Account instance resource represents a single Twilio account.
 type Account struct {
-	SID             string            `json:"sid"`
-	DateCreated     Time              `json:"date_created"`
-	DateUpdated     Time              `json:"date_updated"`
-	FriendlyName    string            `json:"friendly_name"`
-	Type            string            `json:"type"`
-	Status          string            `json:"status"`
-	AuthToken       string            `json:"auth_token,omitempty"`
-	URI             string            `json:"uri"`
+	// A 34 character string that uniquely identifies this account.
+	SID string `json:"sid"`
+
+	// The date this account was created.
+	DateCreated Time `json:"date_created"`
+
+	// The date that this account was last updated.
+	DateUpdated Time `json:"date_updated"`
+
+	// A human readable description of this account, up to 64 characters long.
+	// By default the FriendlyName is your email address.
+	FriendlyName string `json:"friendly_name"`
+
+	// The type of this account. Either Trial or Full if you've upgraded.
+	Type string `json:"type"`
+
+	// The status of this account. Usually active, but can be suspended or
+	// closed.
+	Status string `json:"status"`
+
+	// The authorization token for this account. This token should be kept a
+	// secret, so no sharing.
+	AuthToken string `json:"auth_token,omitempty"`
+
+	// The URI for this resource, relative to https://api.twilio.com.
+	URI string `json:"uri"`
+
+	// The list of subresources under this account.
 	SubresourceURIs map[string]string `json:"subresource_uris"`
-	OwnerAccountSID string            `json:"owner_account_sid"`
+
+	// The Sid of the parent account for this account. The OwnerAccountSid of a
+	// parent account is its own sid.
+	OwnerAccountSID string `json:"owner_account_sid"`
 }
 
 // An Address instance resource represents a single Twilio address.
