@@ -1,9 +1,5 @@
 package twilio
 
-import (
-	"time"
-)
-
 // The Exception struct is the representation of an error resource returned from
 // the Twilio API when an error happens with a request.
 type Exception struct {
@@ -18,8 +14,8 @@ var jsonNull = []byte("null")
 // An Account instance resource represents a single Twilio account.
 type Account struct {
 	SID             string            `json:"sid"`
-	DateCreated     time.Time         `json:"date_created"`
-	DateUpdated     time.Time         `json:"date_updated"`
+	DateCreated     Time              `json:"date_created"`
+	DateUpdated     Time              `json:"date_updated"`
 	FriendlyName    string            `json:"friendly_name"`
 	Type            string            `json:"type"`
 	Status          string            `json:"status"`
