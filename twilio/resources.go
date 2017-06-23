@@ -9,8 +9,6 @@ type Exception struct {
 	MoreInfo string `json:"more_info"`
 }
 
-var jsonNull = []byte("null")
-
 // An Account instance resource represents a single Twilio account.
 type Account struct {
 	SID             string            `json:"sid"`
@@ -23,4 +21,23 @@ type Account struct {
 	URI             string            `json:"uri"`
 	SubresourceURIs map[string]string `json:"subresource_uris"`
 	OwnerAccountSID string            `json:"owner_account_sid"`
+}
+
+// An Address instance resource represents a single Twilio address.
+//
+// From the docs: An Address instance resource represents your or your
+// customer’s physical location within a country.
+type Address struct {
+	SID              string `json:"sid"`
+	AccountSID       string `json:"account_sid"`
+	FriendlyName     string `json:"friendly_name"`
+	CustomerName     string `json:"customer_name"`
+	Street           string `json:"street"`
+	City             string `json:"city"`
+	Region           string `json:"region"`
+	PostalCode       string `json:"postal_code"`
+	IsoCountry       string `json:"iso_country"`
+	URI              string `json:"uri"`
+	EmergencyEnabled bool   `json:"emergency_enabled"`
+	Validated        bool   `json:"validated"`
 }
