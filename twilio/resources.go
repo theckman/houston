@@ -51,16 +51,44 @@ type Account struct {
 // From the docs: An Address instance resource represents your or your
 // customer’s physical location within a country.
 type Address struct {
-	SID              string `json:"sid"`
-	AccountSID       string `json:"account_sid"`
-	FriendlyName     string `json:"friendly_name"`
-	CustomerName     string `json:"customer_name"`
-	Street           string `json:"street"`
-	City             string `json:"city"`
-	Region           string `json:"region"`
-	PostalCode       string `json:"postal_code"`
-	IsoCountry       string `json:"iso_country"`
-	URI              string `json:"uri"`
-	EmergencyEnabled bool   `json:"emergency_enabled"`
-	Validated        bool   `json:"validated"`
+	// A 34 character string that uniquely identifies this address.
+	SID string `json:"sid"`
+
+	// The unique id of the Account responsible for this address.
+	AccountSID string `json:"account_sid"`
+
+	// A human-readable description of the address. Maximum 64 characters.
+	FriendlyName string `json:"friendly_name"`
+
+	// Your name or business name, or that of your customer.
+	CustomerName string `json:"customer_name"`
+
+	// The number and street address where you or your customer is located.
+	Street string `json:"street"`
+
+	// The city in which you or your customer is located.
+	City string `json:"city"`
+
+	// The state or region in which you or your customer is located.
+	Region string `json:"region"`
+
+	// The postal code in which you or your customer is located.
+	PostalCode string `json:"postal_code"`
+
+	// The ISO country code of your or your customer's address.
+	IsoCountry string `json:"iso_country"`
+
+	// The URI for this resource, relative to https://api.twilio.com.
+	URI string `json:"uri"`
+
+	// This is a value that indicates if emergency calling has been enabled on
+	// this number. Possible values are true or false.
+	EmergencyEnabled bool `json:"emergency_enabled"`
+
+	// In some countries, addresses are validated to comply with local
+	// regulation. In those countries, if the address you provide does not pass
+	// validation, it will not be accepted as an Address. This value will be
+	// true if the Address has been validated, or false for countries that don't
+	// require validation or if the Address is non-compliant.
+	Validated bool `json:"validated"`
 }
